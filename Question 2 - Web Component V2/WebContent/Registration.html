@@ -17,24 +17,57 @@
     <h2>Please register below:</h2>
     
     <div class="input-line">
-    <label>Username:</label>
-    <input></input>    
+    <label for="username">Username:</label>    
+    <input
+    id="username" 
+    name="username"
+    title="Your username, no more than 15 characters"
+    maxlength="15"
+    type="text"
+    required="required"
+    aria-required="true"    
+    onchange="validate()"    
+    ></input>    
     <br>
     </div>
     
     <div class="input-line">
-    <label>Email:</label>
-    <input></input>
+    <label for="email">Email:</label>    
+    <input
+    id="email" 
+    name="email"
+    title="Your email"
+    type="email"
+    required="required"
+    aria-required="true"    
+    onchange="validate()"
+    ></input>
     </div>
     
     <div class="input-line">
-    <label>Password:</label>
-    <input></input>
+    <label>Password:</label>    
+    <input
+    id="password" 
+    name="password"
+    title="Your password"
+    type="password"
+    required="required"
+    aria-required="true"    
+    onchange="validate()"
+    ></input>
     </div>
 
 	<div class="input-line">
-	<label>Confirm Password:</label>
-    <input></input>
+	<label>Confirm Password:</label>	
+    <input
+    id="confirm" 
+    name="confirm"
+    title="Please reenter your password"
+    type="password"
+    required="required"
+    aria-required="true"    
+    onchange="validate()"
+    ></input>
     </div>
     
     <div class="input-line">
@@ -48,5 +81,38 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+    const usernameInput = document.getElementById('username');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const confirmInput = document.getElementById('confirm');
+    
+    function validate() {
+    	window.alert("Validating");    	
+    	
+       	if ( (usernameInput.value.length > 1) && (usernameInput.value.length <= 15) ) {
+       		window.alert("Valid Username"); 
+       	} else {
+       		window.alert("Invalid Username");
+       	}
+    	
+    	var emailPattern = /(?:[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
+    	let emailRegEx = new RegExp(emailPattern);
+    	if ( emailRegEx.test(emailInput.value) ) {
+    		window.alert("Valid Email"); 
+    	} else {
+    		window.alert("Invalid Email");
+    	}
+    	   	
+    	
+    	if ( passwordInput.value == confirmInput.value ) {
+       		window.alert("Passwords match"); 
+       	} else {
+       		window.alert("Passwords do not match");
+       	}
+	     	
+    } 
+    
+    </script>
   </body>
 </html>
