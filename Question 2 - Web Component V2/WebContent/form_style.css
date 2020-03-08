@@ -9,8 +9,9 @@
     transform: translateX(-50%) translateY(-50%);
 }
 
-h1 {
-	
+.error-message {
+	color: red;
+	margin: 0;
 }
 
 .input-line {  	
@@ -27,4 +28,6 @@ h1 {
 	padding: 2px;
   	border-width: 1px;
   	border-style: solid;
+  	border-radius: 10px;
 }
+
