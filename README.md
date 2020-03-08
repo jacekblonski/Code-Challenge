@@ -1,1 +1,1 @@
-# LightFeather-Code-Challenge
+# Code-Challenge
